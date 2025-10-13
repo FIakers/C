@@ -1,5 +1,3 @@
-#include <unistd.h>
-
 int	ipssi_strlen(char *str)
 {
 	int	count;
