@@ -4,8 +4,7 @@ void	ipssi_print_comb2(void)
 {
 	int		left;
 	int		right;
-	char	asciileft[2];
-	char	asciiright[2];
+	char	ascii[5];
 
 	left = -1;
 	right = 0;
@@ -13,13 +12,12 @@ void	ipssi_print_comb2(void)
 	{
 		while (++right <= 99)
 		{
-			asciileft[0] = 48 + (left / 10);
-			asciileft[1] = 48 + (left % 10);
-			write(1, asciileft, 2);
-			write(1, " ", 1);
-			asciiright[0] = 48 + (right / 10);
-			asciiright[1] = 48 + (right % 10);
-			write(1, asciiright, 2);
+			ascii[0] = 48 + (left / 10);
+			ascii[1] = 48 + (left % 10);
+			ascii[2] = ' ';
+			ascii[3] = 48 + (right / 10);
+			ascii[4] = 48 + (right % 10);
+			write(1, ascii, 5);
 			if (left != 98)
 			{
 				write(1, ", ", 2);
