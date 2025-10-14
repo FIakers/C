@@ -2,49 +2,35 @@
 
 void	ipssi_print_comb2(void)
 {
-	char	left1;
-	char	left2;
-	char	right1;
-	char	right2;
+	int		left;
+	int		right;
+	char	asciileft[2];
+	char	asciiright[2];
 
-	left1 = '0';
-	left2 = '0';
-	right1 = '0';
-	right2 = '1';
-	while (left1 != ':')
+	left = -1;
+	right = 0;
+	while (++left < 99)
 	{
-		while (left2 != ':')
+		while (++right <= 99)
 		{
-			while (right1 != ':')
+			asciileft[0] = 48 + (left / 10);
+			asciileft[1] = 48 + (left % 10);
+			write(1, asciileft, 2);
+			write(1, " ", 1);
+			asciiright[0] = 48 + (right / 10);
+			asciiright[1] = 48 + (right % 10);
+			write(1, asciiright, 2);
+			if (left != 98)
 			{
-				while (right2 != ':')
-				{
-					write(1, &left1, 1);
-					write(1, &left2, 1);
-					write(1, " ", 1);
-					write(1, &right1, 1);
-					write(1, &right2, 1);
-					if (left1 != '9' || left2 != '8')
-					{
-						write(1, ", ", 1);
-					}
-					right2++;
-				}
-				right1++;
-				right2 = '0';
-			}
-			left2++;
-			right1 = left1;
-			right2 = left2 + 1;
-			if (right2 == ':')
-			{
-				right1 = left1 + 1;
-				right2 = '0';
+				write(1, ", ", 2);
 			}
 		}
-		left1++;
-		left2 = '0';
-		right1 = left1;
-		right2 = '1';
+		right = left + 1;
 	}
+}
+
+int	main(void)
+{
+	ipssi_print_comb2();
+	return (1);
 }
