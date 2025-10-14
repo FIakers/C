@@ -26,9 +26,3 @@ void	ipssi_print_comb2(void)
 		right = left + 1;
 	}
 }
-
-int	main(void)
-{
-	ipssi_print_comb2();
-	return (1);
-}
