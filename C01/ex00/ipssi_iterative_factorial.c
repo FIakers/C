@@ -4,7 +4,6 @@ int	ipssi_iterative_factorial(int nb)
 {
 	int		result;
 
-	result = 1;
 	if (nb == 1 || nb == 0)
 		return (1);
 	else if (nb < 0)
